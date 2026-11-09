@@ -3,7 +3,7 @@
 > عميل يدعو خمسة أدوات، ثلاثة خادمات MCP، و اثنين من العملاء الفرعيين. تحتاجين إلى دليل واحد على كل شيء الاتفاقيات الترجمية OpenTelemetry GenAI (الخصائص المستقرة في v1.37 وما فوق) هي معيار 2026 ، المدعومة بشكل أصلي من قبل Datadog ، Langfuse ، Arize Phoenix ، OpenLLMetry ، و AgentOps. هذه الدروس تعطي الأسماء للخصائص المطلوبة، وتتبع ترتيبات المدة (الوكيل → أداة LLM) ، وتشحن إمتير المدة القصوى يمكنك توصيلها إلى أي مصدر OTel.
 
 **Type:** Build
-**Languages:** Python (stdlib, OTel span emitter)
+**Languages:** Python (stdlib, OTel span emitter), TypeScript
 **Prerequisites:** Phase 13 · 07 (MCP server), Phase 13 · 08 (MCP client)
 **Time:** ~75 minutes
 
@@ -150,7 +150,7 @@ t3-span-waterfall
 | Span | "Timed operation" | A unit of work with a start, end, and attributes |
 | Trace | "Cross-span ancestry" | Tree of spans sharing a trace id |
 | SpanKind | "CLIENT / SERVER / INTERNAL" | Hints about span direction |
-| OTLP | "OpenTelemetry Line Protocol" | Wire format for exporters |
+| OTLP | "OpenTelemetry Protocol" | Wire format for exporters |
 | Opt-in content | "Prompt / completion capture" | Off by default; env var to enable |
 | traceparent | "W3C header" | Propagates trace context across services |
 | Exporter | "Backend-specific shipper" | Component that sends spans to Jaeger / Datadog / etc. |

@@ -3,7 +3,7 @@
 > النتيجة التفاعلية لا تزال أداة MCP وتبادل الموارد. يجعلها جوهر 2026-07-28 مستقلة عن التبادل ، في حين يضيف امتداد التطبيقات سطح المتصفح المعدن.
 
 **Type:** Build
-**Languages:** Python
+**Languages:** Python, TypeScript
 **Prerequisites:** Phase 13 · 07 (MCP server), Phase 13 · 10 (resources)
 **Time:** ~75 minutes
 
@@ -265,10 +265,11 @@ t3-ui-sandbox
 ```bash
 cd phases/13-tools-and-protocols/14-mcp-apps
 python3 code/main.py
+npx tsx code/main.ts
 python3 -m unittest discover code/tests -v
 ```
 
-تحقق من أربعة أشياء في الخروج:
+تحقق من خمسة أشياء في الخروج:
 
 1. كل مكالمة مستقلة
 2. كل طلب لديه`_meta`القدرات
@@ -292,7 +293,7 @@ python3 -m unittest discover code/tests -v
 2. أرسل`Mcp-Name: ui://notes/other.html`مع جسم يقرأ خط الزمن. تأكيد الخطأ`-32020`. . .
 3. تغيير الموارد إلى `cacheScope: private`. وصف حالة المستخدم المحددة التي تبرهن ذلك.
 4. تحرك النص إلى `https://static.example.com/app.js`إضافة هذا الأصل إلى`resourceDomains`ويشرح مخاطر سلسلة التوريد الجديدة
-5. إضافة `notes_open`أداة وتوجيه زر النقل من خلال المضيف. الحفاظ على موافقة المستخدم في المضيف.
+5. إضافة`notes_open`أداة وتوجيه زر النقل من خلال المضيف. الحفاظ على موافقة المستخدم في المضيف.
 
 ## الشروط الرئيسية
 

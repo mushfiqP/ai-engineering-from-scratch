@@ -3,7 +3,7 @@
 > يتم الانتهاء من المهارة عندما تتبقى حزمة من المهارات، وتتبع الطلبات الصحيحة، وتحسن المهمة المقاسة، وتبقى داخل السياسة، وتتدهور بشكل صادق على مضيف آخر.
 
 **Type:** Build
-**Languages:** Python (stdlib)
+**Languages:** Python (stdlib), TypeScript
 **Prerequisites:** Phase 13 · 22, 24, 25, and 26
 **Time:** ~150 minutes
 
@@ -137,10 +137,12 @@ skill-eval-layers
 
 للدعوة الثنائية:
 
-```text
-precision = true_positives / (true_positives + false_positives)
-recall = true_positives / (true_positives + false_negatives)
-f1 = 2 * precision * recall / (precision + recall)
+```math
+\begin{aligned}
+\text{precision} &= \frac{\text{true\_positives}}{\text{true\_positives} + \text{false\_positives}} \\[4pt]
+\text{recall} &= \frac{\text{true\_positives}}{\text{true\_positives} + \text{false\_negatives}} \\[4pt]
+\text{f1} &= \frac{2 \cdot \text{precision} \cdot \text{recall}}{\text{precision} + \text{recall}}
+\end{aligned}
 ```
 
 أبلغ عن العد الخام مع النسب العشرة من العشر و مائة من المئة كلاهما 100 في المئة ولكن توفر أدلة مختلفة.
@@ -423,6 +425,7 @@ package:
 cd "$(git rev-parse --show-toplevel)"
 cd phases/13-tools-and-protocols/27-skill-evals-packaging-and-portability
 python3 code/main.py
+npx tsx code/main.ts
 python3 -m unittest discover -s code/tests -v
 ```
 

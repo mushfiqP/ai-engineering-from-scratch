@@ -3,7 +3,7 @@
 > ثلاثة عمليات بحث عن الطقس المستقلة المسلسلة هي ثلاث رحلات ذهابًا وإيابًا. قم بها بالتوازي وتنهار الوقت الإجمالي إلى أبطأ مكالمة واحدة. يصدّر كل مزود حدودي الآن مكالمات أداة متعددة في جولة واحدة. الجائزة حقيقية؛ والسباكة ظريفة. يدور هذا الدروس في النصفين: التمويع الموازي والحجة المتوصلة إعادة التجميع، مع التركيز على فخ الاصمة.
 
 **Type:** Build
-**Languages:** Python (stdlib, thread pool + streaming harness)
+**Languages:** Python, TypeScript (stdlib, thread pool + streaming harness)
 **Prerequisites:** Phase 13 · 02 (function calling deep dive)
 **Time:** ~75 minutes
 
@@ -66,7 +66,7 @@ LLM -> final text answer
 
 يدير المضيف تنفيذ كل مكالمة على خيطه الخاص ، أو coroutine ، أو عامل بعيد. يستخدم أسهل الحزام مجموعة خيطات ؛ ويستخدم الإنتاج asyncio مع `asyncio.gather`أو التزامن المهيكلي. ترتيب الانتهاء غير متوقع  هو المعرف.
 
-خطأ شائع واحد: الإجابة بالنتائج في ترتيب قائمة المكالمات بدلاً من ترتيب الانتهاء. هذا عادة ما يعمل لأن النموذج يهتم فقط`tool_call_id`، ولكن إذا تم إلقاء النتيجة أو تكرارها ، فإن إرسال خارج النظام يجعل التحليلات الأصعب. يفضل الإجابة بالترتيب الكامل مع هويات صريحة.
+خطأ شائع واحد: الإجابة بالنتائج في ترتيب قائمة المكالمات بدلاً من ترتيب الانتهاء. هذا عادة ما يعمل لأن النموذج يهتم فقط`tool_call_id`، ولكن إذا تم إلقاء النتيجة أو تكرارها، فإن قائمة الإجابات التي يتم ترتيبها من جديد بعيدا عن الترتيب الذي وصلت إليه النتائج تجعل العجز أصعب العثور عليه في السجلات.
 
 ### مكالمات أداة التدفق
 
@@ -158,7 +158,7 @@ tp-parallel-fanout
 ## المزيد من القراءة
 
 - [OpenAI — Parallel function calling](https://platform.openai.com/docs/guides/function-calling#parallel-function-calling) سلوك الافتراضي والعلامة الامتناع عن الاشتراك
-- [Anthropic — Tool use: implementing tool use](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/implementing-tool-use) `disable_parallel_tool_use`وفرق النتائج
+- [Anthropic — Parallel tool use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/parallel-tool-use) `disable_parallel_tool_use`وفرق النتائج
 - [Google — Gemini function calling parallel section](https://ai.google.dev/gemini-api/docs/function-calling) مكالمات متوازية ذات صلة بالصورة من Gemini 3
 - [OpenAI — Streaming responses with tools](https://platform.openai.com/docs/api-reference/responses-streaming) إعادة تجميع الحجج المقطوعة لتدفقات OpenAI
 - [Anthropic — Streaming messages](https://docs.anthropic.com/en/api/messages-streaming) `content_block_delta`مع`input_json_delta`
